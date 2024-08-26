@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Colegios</h1>
+    <ul>
+        {% for colegio in colegios %}
+            <li>{{colegio.nombre}}</li>
+        {% endfor %}
+    </ul>
+    <a href="/colegios/crear/">Agregar colegio</a>
+    <a href="/">Volver al Inicio</a>
+</body>
+
+</html>

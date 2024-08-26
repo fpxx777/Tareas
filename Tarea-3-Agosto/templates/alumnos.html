@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Alumnos</h1>
+    <ul>
+        {% for alumno in alumnos %}
+            <li>{{alumno.nombre}} {{alumno.apellido}}</li>
+        {% endfor %}
+    </ul>
+    <a href="/alumnos/crear/">Agregar alumno</a>
+    <a href="/">Volver al Inicio</a>
+</body>
+
+</html>

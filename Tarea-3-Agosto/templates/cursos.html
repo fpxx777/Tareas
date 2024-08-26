@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cursos</h1>
+    <ul>
+        {% for curso in cursos %}
+            <li>{{curso.name}}</li>
+        {% endfor %}
+    </ul>
+    <a href="/cursos/crear/">Agregar Curso</a>
+    <a href="/">Volver al Inicio</a>
+</body>
+
+</html>
