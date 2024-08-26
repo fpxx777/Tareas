@@ -6,10 +6,25 @@ from models.alumno import Alumno
 app = Flask(__name__)
 
 
+def get_class(opcion):
+    return {
+        "colegios": Colegio, 
+    }[opcion]
+#GENERAL ---------------------------------------------------------------
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
+@app.route('/<opcion>/', methods=['post'])
+def pre_select_one(opcion):
+    search = request.form.get('response')
+    print(opcion, search)
+    return redirect(f'/{opcion}/{search}/')
+
+@app.route('/<opcion>/<id>/', methods=['GET'])
+def select_one(opcion, id):
+    result = get_class(opcion).select_one(id)
+    return render_template('select_one.html', result = result)
 #COLEGIOS ---------------------------------------------
 @app.route('/colegios', methods=['GET'])
 def colegios():
@@ -25,6 +40,7 @@ def colegios_crear():
     name = request.form.get('colegio')
     Colegio.insert_colegio(name)
     return redirect('/')
+
 
 #PROFESORES --------------------------------------------
 @app.route('/profesores', methods=['GET'])

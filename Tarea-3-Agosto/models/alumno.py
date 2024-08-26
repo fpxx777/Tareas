@@ -19,3 +19,13 @@ class Alumno:
     def insert_alumno(cls, nombre, apellido, curso):
         query = f"INSERT INTO alumnos (nombre, apellido, id_curso) VALUES ('{nombre}', '{apellido}', {curso})"
         connectToMySQL('sist_educativo').query_db(query)
+        
+    @classmethod
+    def select_one(cls, id_alumno):
+        query = f"SELECT * FROM alumnos WHERE id = {id_alumno}"
+        try:
+            resutls = connectToMySQL('sist_educativo').query_db(query)
+            alumno = cls(resutls)
+            return alumno
+        except:
+            return False

@@ -21,3 +21,13 @@ class Curso:
             connectToMySQL('sist_educativo').query_db(query)
         except:
             return False
+    @classmethod
+    def select_one(cls, id_curso):
+        query = f"SELECT * FROM cursos WHERE id = {id_curso}"
+        try:
+            resutls = connectToMySQL('sist_educativo').query_db(query)
+            curso = cls(resutls)
+            return curso
+        except:
+            return False
+        
