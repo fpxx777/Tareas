@@ -25,7 +25,6 @@ class Alumno:
         query = f"SELECT * FROM alumnos WHERE id = {id_alumno}"
         try:
             resutls = connectToMySQL('sist_educativo').query_db(query)
-            alumno = cls(resutls)
-            return alumno
+            return resutls
         except:
             return False

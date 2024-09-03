@@ -24,7 +24,6 @@ class Profesor:
         query = f"SELECT * FROM profesores WHERE id = {id_profesor}"
         try:
             resutls = connectToMySQL('sist_educativo').query_db(query)
-            profesor = cls(resutls)
-            return profesor
+            return resutls
         except:
             return False

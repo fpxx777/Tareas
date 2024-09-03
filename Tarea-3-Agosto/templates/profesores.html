@@ -9,6 +9,11 @@
 
 <body>
     <h1>Profesores</h1>
+    <h2>Buscar por id</h2>
+    <form action="/profesores/" method="post">
+        <input type="text" name="response" id="">
+        <button type="submit">Buscar</button>
+    </form>
     <ul>
         {% for profesor in profesores %}
             <li>{{profesor.nombre}} {{profesor.apellido}}</li>

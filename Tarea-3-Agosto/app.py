@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 def get_class(opcion):
     return {
-        "colegios": Colegio, 
+        "colegios": Colegio,
+        "profesores" : Profesor,
+        "cursos": Curso,
+        "alumnos": Alumno
     }[opcion]
 #GENERAL ---------------------------------------------------------------
 @app.route('/', methods=['GET'])
@@ -23,8 +26,9 @@ def pre_select_one(opcion):
 
 @app.route('/<opcion>/<id>/', methods=['GET'])
 def select_one(opcion, id):
-    result = get_class(opcion).select_one(id)
-    return render_template('select_one.html', result = result)
+    response = get_class(opcion).select_one(id)
+    print(response[0])
+    return render_template('select_one.html',response = response)
 #COLEGIOS ---------------------------------------------
 @app.route('/colegios', methods=['GET'])
 def colegios():
