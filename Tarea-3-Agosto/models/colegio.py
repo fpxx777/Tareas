@@ -26,7 +26,6 @@ class Colegio:
         query = f"SELECT * FROM colegios WHERE id = {id_colegio}"
         try:
             resutls = connectToMySQL('sist_educativo').query_db(query)
-            colegio = cls(resutls)
-            return colegio
+            return resutls
         except:
             return False
