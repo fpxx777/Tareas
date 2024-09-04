@@ -45,6 +45,10 @@ def colegios_crear():
     Colegio.insert_colegio(name)
     return redirect('/')
 
+@app.route('/colegios/editar/<id>', methods=['POST'])
+def colegios_editar(id):
+    
+
 
 #PROFESORES --------------------------------------------
 @app.route('/profesores', methods=['GET'])
