@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            background-color: cadetblue;
+            color: #fff;
+        }
+    </style>
+    <title>Editar Alumno</title>
+</head>
+
+<body>
+    <h1>Editar Alumno: {{alumno.nombre}}</h1>
+    <form action="/alumnos/editar/{{alumno.id}}/" method="post">
+        <div>
+            <input type="hidden" name="id_alumno" value="{{alumno.id}}">
+        </div>
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" name="nombre_alumno" value="{{alumno.nombre}}">
+        </div>
+        <div>
+            <label for="name">Apellido</label>
+            <input type="text" name="apellido_alumno" value="{{alumno.apellido}}">
+        </div>
+        <div>
+            <select name="id_curso" id="">
+                {% for curso in cursos%}
+                <option value="{{curso.id}}">{{curso.nombre}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+
+</html>

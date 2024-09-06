@@ -29,3 +29,14 @@ class Colegio:
             return resutls
         except:
             return False
+    @classmethod
+    def update(cls, id_colegio, nombre):
+        query = f"UPDATE colegios SET nombre = '{nombre}' WHERE id = {id_colegio}"
+        result = connectToMySQL('sist_educativo').query_db(query)
+        return result
+    @classmethod
+    @classmethod
+    def deleted(cls,id):
+        query = f"DELETE FROM colegios WHERE id = {id}"
+        result = connectToMySQL('sist_educativo').query_db(query)
+        return result

@@ -5,6 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body > a{
+            color: cadetblue;
+            margin-right: 2cd0px;
+        }
+        button > a{
+            text-decoration: none;
+            color: #fff;
+        }
+        button{
+            background-color: cadetblue;
+            color: #fff;
+        }
+        table {
+            width: auto;
+            border: 1px solid #000;
+        }
+
+        th,
+        td {
+            width: auto;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,11 +40,32 @@
         <input type="text" name="response" id="">
         <button type="submit">Buscar</button>
     </form>
-    <ul>
-        {% for alumno in alumnos %}
-            <li>{{alumno.nombre}} {{alumno.apellido}}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Alumnos</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <th scope="row">{{alumno.nombre}} {{alumno.apellido}}</th>
+                <td>
+                    <button>
+                        <a href="/alumnos/editar/{{alumno.id}}/">Editar</a>
+                    </button>
+                </td>
+                <td>
+                    <form action="/alumnos/eliminar/{{alumno.id}}/" method="post">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="/alumnos/crear/">Agregar alumno</a>
     <a href="/">Volver al Inicio</a>
 </body>

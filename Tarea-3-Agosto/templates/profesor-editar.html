@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Profesor</title>
+    <style>
+    button{
+        background-color: cadetblue;
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+<h1>Editar Profesor: {{profesor.nombre}}</h1>
+    <form action="/profesores/editar/{{profesor.id}}/" method="post">
+        <div>
+            <input type="hidden" name="id_profe" value="{{profesor.id}}">
+        </div>
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" name="nombre_profesor" value="{{profesor.nombre}}">
+        </div>
+        <div>
+            <label for="name">Apellido</label>
+            <input type="text" name="apellido_profesor" value="{{profesor.apellido}}">
+        </div>
+        <div>
+            <select name="id_colegio" id="">
+                {% for colegio in colegios%}
+                <option value="{{colegio.id}}">{{colegio.nombre}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+
+</html>
